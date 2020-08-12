@@ -1,52 +1,53 @@
 import React from 'react';
-import {useParams} from 'react-router-dom' //hook
+import { useParams } from 'react-router-dom';
 
-import PlaceList from "../components/PlaceList"
+import PlaceList from '../components/PlaceList';
 
 const DUMMY_PLACES = [
-    {
-        id: 'p1',
-        title: 'Gala Tower',
-        description: 'The best Tower in Turkey!',
-        imageUrl: 'https://www.emlakgundemi.com.tr/images/haberler/2020/06/galata_kulesi_muze_oluyor_h14811_d39d5.jpg',
-        adress: "Bereketzade, Galata kulesi, 34421 Beyoğlu/İstanbul, Turkey",
-        location: {
-           lat: 41.0256718,
-           lng: 28.97194
-        },
-        creator: 'u1'
+  {
+    id: 'p1',
+    title: 'Empire State Building',
+    description: 'One of the most famous sky scrapers in the world!',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg',
+    address: '20 W 34th St, New York, NY 10001',
+    location: {
+      lat: 40.7484405,
+      lng: -73.9878584
     },
-    {
-        id: 'p2',
-        title: 'Gala Tower',
-        description: 'The best Tower in Turkey!',
-        imageUrl: 'https://www.emlakgundemi.com.tr/images/haberler/2020/06/galata_kulesi_muze_oluyor_h14811_d39d5.jpg',
-        adress: "Bereketzade, Galata kulesi, 34421 Beyoğlu/İstanbul, Turkey",
-        location: {
-           lat: 41.0256718,
-           lng: 28.97194
-        },
-        creator: 'u1'
+    creator: 'u1'
+  },
+  {
+    id: 'p2',
+    title: 'Empire State Building',
+    description: 'One of the most famous sky scrapers in the world!',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg',
+    address: '20 W 34th St, New York, NY 10001',
+    location: {
+      lat: 40.7484405,
+      lng: -73.9878584
     },
-    {
-        id: 'p3',
-        title: 'Gala Tower',
-        description: 'The best Tower in Turkey!',
-        imageUrl: 'https://www.emlakgundemi.com.tr/images/haberler/2020/06/galata_kulesi_muze_oluyor_h14811_d39d5.jpg',
-        adress: "Bereketzade, Galata kulesi, 34421 Beyoğlu/İstanbul, Turkey",
-        location: {
-           lat: 41.0256718,
-           lng: 28.97194
-        },
-        creator: 'u2'
-    }
-]
-const UserPlaces = () =>{
-   //useParams-hook, to get only the phosot of tha id of that user
-    const userId = useParams().userId;
-    const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === userId)
-     return(
-        <PlaceList items={loadedPlaces} />
-     )
-}
-export default UserPlaces
+    creator: 'u2'
+  }, {
+    id: 'p3',
+    title: 'Empire State Building',
+    description: 'One of the most famous sky scrapers in the world!',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg',
+    address: '20 W 34th St, New York, NY 10001',
+    location: {
+      lat: 40.7484405,
+      lng: -73.9878584
+    },
+    creator: 'u1'
+  },
+];
+
+const UserPlaces = () => {
+  const userId = useParams().userId;
+  const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === userId);
+  return <PlaceList items={loadedPlaces} />;
+};
+
+export default UserPlaces;
