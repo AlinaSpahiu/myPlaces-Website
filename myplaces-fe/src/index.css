@@ -10,7 +10,11 @@ html {
 
 body {
   margin: 0;
-  background: rgb(192, 85, 103);
+  background-image: url("./img/good-morning-wallpaper.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .slide-in-left-enter {
