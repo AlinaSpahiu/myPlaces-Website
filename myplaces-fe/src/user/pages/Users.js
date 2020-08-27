@@ -18,8 +18,8 @@ const Users = () =>{
         },
         {
             id: '3',
-            image: "https://ca.slack-edge.com/TJNQP8XCG-UJF5YCSTV-9c84c1b89d6a-512",
-            name: "Stefano Casasola",
+            image: "https://ca.slack-edge.com/TJNQP8XCG-UJQKLH1HV-494c924b5c2a-512",
+            name: "Diego Banovaz",
             placeCount: 0 
         }, {
             id: '3',
