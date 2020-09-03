@@ -7,7 +7,7 @@ const User = require('../routes/users/userModel') //Users Schema - Model
 const getUsers = async(req, res, next) =>{
     let users;
       try{
-           users =await User.find({}, 'email name')//const users = User.find({}, '-password')
+           users =await User.find(req.query).populate('places')
          }catch(err){
              const error = new HttpError('Fetching users failed, please try again later!', 500);
              return next(error);
