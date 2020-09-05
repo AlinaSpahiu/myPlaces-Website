@@ -1,6 +1,7 @@
 const express = require('express');
 const {check} = require('express-validator');
 const usersControllers = require('../../controllers/users-controller');
+const HttpError  = require('../../errorHandling/http-error')
 
 const router = express.Router();
 
@@ -21,7 +22,17 @@ router.post('/signup',
              check('password')
                 .isLength({min: 6})
             ], 
-            usersControllers.signup)
+             async(req, res, next)=>{
+   try{          
+       const newUser = new User(req.body);
+       const response = await newUser.save();
+       res.status(201).json(response)
+       console.log(response)
+   }catch(err){
+      const error = new HttpError('Signing up failed, please try again later!', 500)
+      return next(error)
+   }
+             })
 
 // Post Login: http://localhost:5000/api/users/login
 router.post('/login', usersControllers.login)
