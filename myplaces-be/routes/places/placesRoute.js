@@ -7,7 +7,10 @@ const Place = require('./placeModel')
 const router = express.Router();
 
 //Get all places - http://localhost:5000/api/users
-router.get('/', placesControllers.getAllPlaces)
+router.get('/', async(req, res, next) =>{
+     const allPlaces = await Place.find(req.query).populate('authors')
+     res.json(allPlaces)
+})
     
     
 
@@ -33,7 +36,11 @@ router.post('/',
                  .isEmpty()
                  .withMessage("Please add a correct address!") 
            ],
-            placesControllers.createPlace)
+            async(req, res, next)=>{
+                 const newPlace = new Place(req.body);
+                 const response = await newPlace.save()
+                 res.json(response)
+            })
 
 // Edit a place - 
 router.patch('/:pid',
