@@ -58,5 +58,4 @@ const App = () => {
   </Router>
   </AuthContext.Provider>
  )}
-
 export default App;
